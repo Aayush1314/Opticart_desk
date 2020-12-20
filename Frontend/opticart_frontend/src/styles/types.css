@@ -1,0 +1,48 @@
+.row-height{
+    height: 250px;
+}
+
+.col-sm-2,.col-md-3,.col{
+    margin: 20px;
+    transition: all 2s ;
+}
+
+ 
+
+.shapesImage{
+    height: 300px;
+    width: 300px;
+}
+
+
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.section{
+    border-top: 16px solid white;
+}
+
+.h-div{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 50px;
+}
+.h-div-el{
+    height: 250px;
+    width: 250px;
+    border-radius: 20px;
+}
+.h-div-sq{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+}
+.slider{
+    height: 500px;
+    background-color: tomato;
+    border-radius: 20px;
+}
+
