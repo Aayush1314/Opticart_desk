@@ -41,11 +41,13 @@ body{
 }
 .custom-nav-link:hover{
 	color: #8167a9 !important;
+	border-bottom: 2px solid #8167a9 ;
+	text-decoration: none;
 	transform: translate3d(-2px,-2px,-2px);
 }
 .active{
 	color: #8167a9 !important;
-	text-decoration: underline;
+	border-bottom: 2px solid black ;
 }
 .custom-nav-link {
 	position: relative;

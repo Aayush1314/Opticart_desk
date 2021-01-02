@@ -1,15 +1,16 @@
 import React from "react"
 import "./navScript"
 import "./nav.css"
+import { Link } from "react-router-dom"
 const Nav = () => {
     return (
         <React.Fragment>
           <header>  
             <nav className="navbar navbar-expand-lg navbar-light shadow-sm bg-light fixed-top">
                 <div className="container"> 
-                    <a className="navbar-brand d-flex align-items-center" href="#">
+                    <Link className="navbar-brand d-flex align-items-center" to="/">
                         <span className="ml-3 font-weight-bold">OPTICART</span>
-                    </a> 
+                    </Link> 
                     <button className="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
                         <span className="navbar-toggler-icon"></span>
                     </button>

@@ -19,29 +19,11 @@ function App() {
   const [gender , setGender] = useState("male")
   const [style, setStyle] = useState("")
  
-  //console.log(backendResponse , "app")
   useEffect(()=>{
-    const sectionData = localStorage.getItem("section")
-    const styleData = localStorage.getItem("styles")
-    const genderData = localStorage.getItem("gender")
-    if (sectionData){
-      setSection(sectionData)
-    }
-    if (styleData){
-      setStyle(styleData)
-    }
-    if (genderData){
-      setGender(genderData)
-    }
-    console.log("from localstirage.getItem useEffect")
-  }
-  ,[])
-
+    setGender(localStorage.getItem("gender"))
+  },[])
   useEffect(()=>{
-    localStorage.setItem("section", section)
-    localStorage.setItem("styles", style)
     localStorage.setItem("gender", gender)
-    console.log("from localstirage.setItem useEffect")
   })
  
   console.log(gender,section,style)
@@ -53,13 +35,13 @@ function App() {
         <Route path="/" exact>
           <Nav></Nav>
           <Carousel></Carousel>
-          <CategoryNav></CategoryNav>    
+          <CategoryNav classS="custom-nav-link" classF="custom-nav-link"></CategoryNav>    
         </Route>
 
         <Route path="/frames" exact>
           <Nav></Nav>
           <Carousel></Carousel>
-          <CategoryNav></CategoryNav>
+          <CategoryNav classS="custom-nav-link" classF="custom-nav-link active"></CategoryNav>
           <GenderModal onGenderChange= {setGender}></GenderModal>
           <Types productCategory="frames"  section={section} onSectionChange = {setSection}></Types>
 
@@ -68,7 +50,7 @@ function App() {
         <Route path="/sunglasses" exact>
           <Nav></Nav>
           <Carousel></Carousel>
-          <CategoryNav></CategoryNav>
+          <CategoryNav classF="custom-nav-link" classS="custom-nav-link active"></CategoryNav>
           <GenderModal onGenderChange= {setGender}></GenderModal>
           <Shapes shapeChange = {setStyle} productCategory="sunglasses" ></Shapes>
         </Route>
@@ -79,22 +61,23 @@ function App() {
           <CategoryNav></CategoryNav>
           <GenderModal onGenderChange= {setGender}></GenderModal>
         </Route>
+  
         
-        <Route path="/frames/shapes" exact>
+        <Route path="/sunglasses/:sty" exact>
           <Nav></Nav>
-          <Carousel></Carousel>
-          <CategoryNav></CategoryNav>
-          <Shapes shapeChange = {setStyle} productCategory="frames" section={section} onSectionChange = {setSection}></Shapes>
+          <Glasses productCategory="sunglasses" style={style} gender={gender} section={section} setSpecID={setSpecId} onSectionChange = {setSection}></Glasses>
         </Route>
 
-        <Route path="/frames/glasses" exact>
+        <Route path="/frames/:specType/:sty" exact>
           <Nav></Nav>
           <Glasses onGenderChange={setGender} onStyleChange={setStyle} productCategory="frames" style={style} gender={gender} section={section} setSpecID={setSpecId} onSectionChange = {setSection}></Glasses>
         </Route>
-        
-        <Route path="/sunglasses/glasses" exact>
+
+        <Route path="/frames/:specType" exact>
           <Nav></Nav>
-          <Glasses productCategory="sunglasses" style={style} gender={gender} section={section} setSpecID={setSpecId} onSectionChange = {setSection}></Glasses>
+          <Carousel></Carousel>
+          <CategoryNav classS="custom-nav-link" classF="custom-nav-link active"></CategoryNav>
+          <Shapes shapeChange = {setStyle} productCategory="frames" section={section} onSectionChange = {setSection}></Shapes>
         </Route>
 
         <Route path="/glasses/:specId">

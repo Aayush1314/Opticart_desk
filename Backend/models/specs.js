@@ -31,6 +31,10 @@ const specsSchema = new mongoose.Schema({
 
     Style: {
         type: String,
+    },
+    image:{
+        data: Buffer,
+        contetType: String
     }
     
 })

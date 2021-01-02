@@ -2,9 +2,8 @@
     height: 250px;
 }
 
-.col-sm-2,.col-md-3,.col{
+.col-sm-2,.col-md-3,.col-sm-6{
     margin: 20px;
-    transition: all 2s ;
 }
 
  

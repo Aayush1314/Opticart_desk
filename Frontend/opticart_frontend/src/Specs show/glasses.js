@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react"
 import axios from 'axios'
-import {Redirect, Link} from "react-router-dom"
+import {Redirect, Link, useParams} from "react-router-dom"
 import "./glasses.css"
 var Glasses = ({style, section,onSectionChange, setSpecID, productCategory, gender}) => {
     
     const [results, setResults] = useState([])
-    
-    //console.log(backendResponse)
-    
+    const {sty,specType} = useParams()
     var renderedResults
     
     useEffect(()=>{
@@ -17,10 +15,10 @@ var Glasses = ({style, section,onSectionChange, setSpecID, productCategory, gend
             if (productCategory==="frames"){
                 const { data } = await axios.get("http://localhost:8000/reading-specs",{
                         params:{
-                        Category: section,
+                        Category: specType,
                         ProductCategory: productCategory,
-                        Gender: gender,
-                        Shape: style
+                        Gender: localStorage.getItem("gender"),
+                        Shape: sty
                         }
                 })
                 if (data){
@@ -28,11 +26,12 @@ var Glasses = ({style, section,onSectionChange, setSpecID, productCategory, gend
                 }
             }
             else{
+                console.log("IN ELSE PART ", productCategory,gender,sty)
                 const { data } = await axios.get("http://localhost:8000/reading-specs",{
                         params:{
                         ProductCategory: productCategory,
-                        Gender: gender,
-                        Shape: style
+                        Gender: localStorage.getItem("gender"),
+                        Shape: sty
                         }
                 })
                 console.log(productCategory,gender,style)
@@ -74,7 +73,7 @@ var Glasses = ({style, section,onSectionChange, setSpecID, productCategory, gend
 
         <div className="row">
             <div className="specGrid">
-                <div className="d-flex flex-row justify-content-center flex-wrap">
+                <div className="d-flex flex-row flex-wrap">
                     {renderedResults}
                 </div>
             </div>

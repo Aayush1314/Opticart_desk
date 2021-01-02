@@ -4,7 +4,22 @@ const   express = require("express"),
         app = express(),
         bodyParser = require("body-parser"),
         mongoose = require("mongoose"),
-        cors = require("cors")
+        cors = require("cors"),
+        multer = require("multer"),
+        fs = require("fs"),
+        path = require("path")
+        
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb)=>{
+        cb(null, "uploads")
+    },
+    filename: (req, file, cb)=>{
+        cb(null, file.fieldname +"-", Date.now())
+    }
+})
+
+var uploads = multer({storage: storage})
 
 const { getspecs, postspecs, readingSpecs } = require("./controllers/getspecs")
 app.use(bodyParser.json()) 

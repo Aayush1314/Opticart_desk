@@ -27,22 +27,22 @@ var Types = ({section,onSectionChange, productCategory}) => {
                 <h1>Types Of Glasses</h1>
             </div>
             
-            <div className="container-fluid">
-            <div className="row row-height">
-                <div className="col" onClick={()=>onSectionChange("readingGlass")}  style={{ background: "black" }}>
-                    <Link to=  "/frames/shapes" >Reading Glasses</Link>
+            <div className="container">
+            <div className="row row-height d-flex justify-content-center">
+                <div className="col-md-3 col-sm-6 bg-success " onClick={()=>onSectionChange("readingGlass")}  >
+                    <Link to=  "/frames/readingGlass" >Reading Glasses</Link>
                 </div>
-                <div className="col" onClick={()=>onSectionChange("computerGlass")} style={{ background: "grey" }} >
-                    <Link to="/frames/shapes">Computer Glasses</Link>
+                <div className="col-md-3 col-sm-6 bg-success" onClick={()=>onSectionChange("computerGlass")}  >
+                    <Link to="/frames/computerGlass">Computer Glasses</Link>
                 </div>
-                <div className="col" onClick={()=>onSectionChange("poweredSunglass")} style={{ background: "grey" }}>
-                    <Link to="/frames/shapes">Powered Sunglasses</Link>
+                <div className="col-md-3 col-sm-6 bg-success" onClick={()=>onSectionChange("poweredSunglass")} >
+                    <Link to="/frames/poweredSunglass">Powered Sunglasses</Link>
                 </div>
-                <div className="col" onClick={()=>onSectionChange("eyeglass")} style={{ background: "grey" }}>
-                    <Link to="/frames/shapes">eyeglass</Link>
+                <div className="col-md-3 col-sm-6 bg-success" onClick={()=>onSectionChange("eyeglass")} >
+                    <Link to="/frames/eyeglass">eyeglass</Link>
                 </div>
-                <div className="col" onClick={()=>onSectionChange("kidsGlass")} style={{ background: "black" }}>
-                    <Link to="/frames/shapes">Kids Glasses</Link>
+                <div className="col-md-3 col-sm-6 bg-success" onClick={()=>onSectionChange("kidsGlass")} >
+                    <Link to="/frames/kidsGlass">Kids Glasses</Link>
                 </div>
                 
                 </div>
